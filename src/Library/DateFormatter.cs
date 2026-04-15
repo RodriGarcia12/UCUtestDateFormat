@@ -1,4 +1,7 @@
-﻿namespace Ucu.Poo.TestDateFormat
+﻿using System.Data.Common;
+using System;
+
+namespace Ucu.Poo.TestDateFormat
 {
    /// <summary>
    /// Esta clase implementa la funcionalidad de cambiar el formato de una
@@ -17,6 +20,9 @@
       /// <returns>La fecha convertida al formato "yyyy-mm-dd".</returns>
       public string ChangeFormat(string date)
       {
+            if (string.IsNullOrEmpty(date) || date.Length < 8 || date.Length > 10)
+               return date = "";
+            
             return date.Substring(6) + "-" + date.Substring(3, 2) + "-" + date.Substring(0, 2);
       }
    }
